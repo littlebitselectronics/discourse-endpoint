@@ -9,6 +9,9 @@
 # load the engine
 load File.expand_path('../lib/discourse_endpoint.rb', __FILE__)
 load File.expand_path('../lib/discourse_endpoint/engine.rb', __FILE__)
+load File.expand_path('../lib/littlebits_nav.rb', __FILE__)
+load File.expand_path('../lib/littlebits_nav/nav_controller.rb', __FILE__)
+load File.expand_path('../lib/littlebits_nav/engine.rb', __FILE__)
 
 # And mount the engine
 Discourse::Application.routes.append do
