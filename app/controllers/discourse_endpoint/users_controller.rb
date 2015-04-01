@@ -9,6 +9,17 @@ module DiscourseEndpoint
       end
     end
 
+    def fetch_nav
+      response = RestClient.get(
+          "http://littlebits.cc/nav/fetch",
+          {
+            params: {
+              ahoy_visitor: cookies[:visitor]
+            }
+          }
+        )
+    end
+
     private
       def retrieve_user_info
         oauth_info = Oauth2UserInfo.find_by(user_id: current_user.id)
