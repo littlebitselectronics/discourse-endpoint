@@ -19,7 +19,8 @@ class SiteCustomization < ActiveRecord::Base
         style.send(lookup)
       end.compact.join("\n")
     end
-    Rails.logger.info("this is a test" + "*"*50)
+
+    Rails.logger.warn("this is a test" + "*"*50)
     (@cache[cache_key] = val || "").html_safe
   end
 end
