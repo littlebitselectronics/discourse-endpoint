@@ -18,6 +18,7 @@ module DiscourseEndpoint
             }
           }
         )
+      render html: response, status: :ok
     end
 
     private
