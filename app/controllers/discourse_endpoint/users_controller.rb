@@ -18,7 +18,7 @@ module DiscourseEndpoint
             }
           }
         )
-      render html: response, status: :ok
+      render html: response.html_safe, status: :ok
     end
 
     private
