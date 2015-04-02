@@ -18,6 +18,7 @@ module DiscourseEndpoint
             }
           }
         )
+      Rails.logger.info("nav response: #{nav_response}")
       render html: nav_response.html_safe, status: :ok
     end
 
@@ -33,6 +34,7 @@ module DiscourseEndpoint
             }
           }
         )
+        Rails.logger.info("user info response: #{response}")
         render json: response, status: :ok
       end
 
