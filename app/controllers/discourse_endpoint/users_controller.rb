@@ -10,7 +10,7 @@ module DiscourseEndpoint
     end
 
     def fetch_nav
-      response = RestClient.get(
+      nav_response = RestClient.get(
           "http://stg2.littlebits.cc/nav/fetch",
           {
             params: {
@@ -18,7 +18,7 @@ module DiscourseEndpoint
             }
           }
         )
-      render html: response.html_safe, status: :ok
+      render html: nav_response.html_safe, status: :ok
     end
 
     private
