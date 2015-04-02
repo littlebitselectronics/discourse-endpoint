@@ -11,7 +11,7 @@ module DiscourseEndpoint
 
     def fetch_nav
       response = RestClient.get(
-          "http://littlebits.cc/nav/fetch",
+          "http://stg2.littlebits.cc/nav/fetch",
           {
             params: {
               ahoy_visitor: cookies[:visitor]
