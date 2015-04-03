@@ -14,7 +14,7 @@ module DiscourseEndpoint
           "http://stg2.littlebits.cc/nav/fetch",
           {
             params: {
-              ahoy_visitor: cookies[:visitor]
+              ahoy_visitor: cookies[:visitor] || cookies[:ahoy_visitor]
             }
           }
         )
