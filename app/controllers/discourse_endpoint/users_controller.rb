@@ -11,7 +11,7 @@ module DiscourseEndpoint
 
     def fetch_nav
       nav_response = RestClient.get(
-          "http://stg1.littlebits.cc/nav/fetch",
+          nav_endpoint_store_url,
           {
             params: {
               ahoy_visitor: cookies[:visitor] || cookies[:ahoy_visitor]
@@ -26,7 +26,7 @@ module DiscourseEndpoint
       def retrieve_user_info
         oauth_info = Oauth2UserInfo.find_by(user_id: current_user.id)
         response = RestClient.get(
-          endpoint_store_url,
+          user_endpoint_store_url,
           {
             params: {
               user_uid: oauth_info.try(:uid),
@@ -38,8 +38,12 @@ module DiscourseEndpoint
         render json: response, status: :ok
       end
 
-      def endpoint_store_url
+      def user_endpoint_store_url
         "#{SiteSetting.endpoint_url}/api/users/retrieve_user_info.json"
+      end
+
+      def nav_endpoint_store_url
+        "#{SiteSetting.endpoint_url}/nav/fetch"
       end
   end
 end
