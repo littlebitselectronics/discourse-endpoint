@@ -18,6 +18,8 @@ module DiscourseEndpoint
             }
           }
         )
+      Rails.logger.warn("endpoint: #{nav_endpoint_store_url}")
+      Rails.logger.warn("response: #{nav_response.html_safe}")
 
       render html: nav_response.html_safe, status: :ok
     end
